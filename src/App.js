@@ -1,8 +1,8 @@
 import './App.scss';
-import Header from './common/header';
+import Router from './routers/index';
 function App() {
   return (
-    <Header />
+    <Router />
   );
 }
 
