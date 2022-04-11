@@ -1,16 +1,14 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBCardLink } from 'mdb-react-ui-kit';
 
-export default function ImageTitle({name, adress, latitude, longitude, id}) {
+export default function CardDefault(props) {
   return (
-    <MDBCard >
-      <MDBCardLink href={`/${id}`} className='text-decoration-none fw-bold text-dark'>
+    <MDBCard className='rounded-0'>
       <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
       <MDBCardBody>
-        <MDBCardTitle>{name}</MDBCardTitle>
-        <MDBCardText> {adress}</MDBCardText>
+        <MDBCardTitle>{props.name}</MDBCardTitle>
+        <MDBCardText> {props.adress}</MDBCardText>
       </MDBCardBody>
-      </MDBCardLink>
     </MDBCard>
   );
 }

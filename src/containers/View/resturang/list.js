@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Restaurant from '../../../actions/get/restaurant';
-import List from '../../../components/cards/_imageTittle'; 
-
+import HorizontalList from '../../../components/ListGroup/horizontalList';
 export default function ResturangListpage() {
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setLoading] = useState(null);
@@ -36,18 +35,10 @@ export default function ResturangListpage() {
     {
       isLoading ? 'Loading ...' :
  
-      restaurants.map((item, index) => {
-          return <List  
-              key={index}
-              id={item.id}
-              name={item.name}
-              adress={item.adress1}
-              city={item.adress2}
-              latitude={item.latitude}
-              longitude={item.longitude}
-          />
-      })
-      
+        <HorizontalList 
+          data={restaurants} 
+          size={'md'}
+        />
     }
     </>
   )

@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { useParams} from "react-router-dom";
 import SingelRestaurant from '../../../actions/get/singelRestaurant';
 import MenuBycategory from '../../../actions/utils/menuBycategory';
-
+import ProductList from '../product/list';
+import CardDefault from '../../../components/cards/default';
 export default function ResturangPage() {
   
   let {id} = useParams();
@@ -30,33 +31,17 @@ export default function ResturangPage() {
 
     return () => {isMounted = false }
   }, [])
+ console.log();
 
-
-  console.log(restaurant);
-
- 
   return ( 
     <>
       {
         isLoading ? 'Loading ...' :
           <>
-            <div>
-               { restaurant ? Object.keys(restaurant).map((keyName, i) => (
-                    <li className="travelcompany-input" key={i}>
-                        <span className="input-label">key: {i} Name: {restaurant[keyName]}</span>
-                    </li>
-                ))
-                : 'Loading ...' 
-               }
-            </div>
-
-            <div>
-                {menus ? menus.Pizza.map((slize, index) => {
-                        return <div key={index}>{slize.name} {slize.price} {slize['topping'].slice(',').join(' | ')}</div>
-                      })
-                  : 'Not found ... '
-                }
-            </div>
+              <ProductList 
+                  products={menus}
+                  restaurant={id}
+              />
           </>
         }
     </>

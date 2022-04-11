@@ -1,10 +1,14 @@
 import React from 'react'
-
-export default function Header() {
+import HeaderWithBanner from './headers/headerWithBanner'   
+export default function Header(props) {
 
   return (
     <div>
-   hedaer
+      <HeaderWithBanner 
+          title={props.title}
+          subtitle={props.subtitle}
+          cta={props.cta}
+      />
     </div>
   )
 }
